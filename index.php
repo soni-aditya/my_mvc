@@ -21,7 +21,7 @@ if(isset($_GET['url'])){
         case 'contact'  :
             echo "This is about Contacts";
             break;
-    }
+    }//sdf
 }
 else{
     echo "My First MVC TEsT";
