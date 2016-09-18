@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Adi
- * Date: 9/18/2016
- * Time: 2:11 AM
+ **MY FIRST BATCH OF MVC FRAMEWORK OF MY OWN
+ * AUTHOR-Aditya Soni
+ * website-www.techieeasy.com
  */
 if(isset($_GET['url'])){
     echo "My First MVC TEsT<br>";
