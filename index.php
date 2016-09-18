@@ -9,7 +9,19 @@ if(isset($_GET['url'])){
     $url=$_GET['url'];
     $url=rtrim($url,"/");
     $url=explode("/",$url);
-    var_dump($url);
+    //var_dump($url);
+
+    switch ($url['0']){
+        case 'about'    :
+            echo "This is about Page";
+            break;
+        case 'services' :
+            echo "This is about Services";
+            break;
+        case 'contact'  :
+            echo "This is about Contacts";
+            break;
+    }
 }
 else{
     echo "My First MVC TEsT";
