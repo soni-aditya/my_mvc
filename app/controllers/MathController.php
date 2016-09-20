@@ -17,11 +17,13 @@ class MathController{
         $node=My_Mvc::getInstance('node');
         $num_one=$node->get('gamma');
         $num_two=$node->get('delta');
-
-        $c=$num_one+$num_two;
+        $sum=$num_one+$num_two;
 
         $basket=My_Mvc::getInstance('basket');
-        var_dump($basket);
+        $basket->set('num_one',$num_one);
+        $basket->set('num_two',$num_two);
+        $basket->set('sum',$sum);
+        My_Mvc::render('add');
     }
     function subtract(){
         echo "This is for subtraction";
