@@ -5,6 +5,7 @@
  * website-www.techieeasy.com
  */
 // Directory- lib/node.php
+//class which gets fragments from url
 
 class node{
 
@@ -17,7 +18,10 @@ class node{
     }
     function get($key)
     {
-        return $this->node[$key];
+        if(isset($this->node[$key]))
+            return $this->node[$key];
+        else
+            return null;
     }
 
     function router()

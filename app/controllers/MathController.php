@@ -14,7 +14,14 @@ class MathController{
         echo "You are in Math Zone";
     }
     function add(){
-        echo "This is add";
+        $node=My_Mvc::getInstance('node');
+        $num_one=$node->get('gamma');
+        $num_two=$node->get('delta');
+
+        $c=$num_one+$num_two;
+
+        $basket=My_Mvc::getInstance('basket');
+        var_dump($basket);
     }
     function subtract(){
         echo "This is for subtraction";
