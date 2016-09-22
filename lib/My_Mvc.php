@@ -8,12 +8,25 @@
 
 class My_Mvc
 {
+    var $node=array();
     private static $instance=array();
+
     function main()
     {
         require_once ("lib".DS."node.php");
         $node=My_Mvc::getInstance('node');
         $node->router();
+    }
+    function set($key,$value)
+    {
+        $this->node[$key]=$value;
+    }
+    function get($key)
+    {
+        if(isset($this->node[$key]))
+            return $this->node[$key];
+        else
+            return null;
     }
     public static function getInstance($class)
     {
@@ -47,7 +60,14 @@ class My_Mvc
     }
     public static function render($view)
     {
+        $my_mvc=My_Mvc::getInstance('My_Mvc');
+        $my_mvc->set('view',$view);
+        require_once ("templates".DS.'starter'.DS."index.php");
+    }
+    public static function app()
+    {
+        $my_mvc=My_Mvc::getInstance('My_Mvc');
+        $view=$my_mvc->get('view');
         require_once ("app".DS."views".DS.$view.DS."default.php");
-        //require_once ("templates".DS.$view.DS."index.php");
     }
 }

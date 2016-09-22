@@ -1,16 +1,12 @@
-<?php
-require('lib/My_Mvc.php');
-$basket=My_Mvc::getInstance('basket');
-?>
 <!DOCTYPE html>
 <head>
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/starter-template.css"/>
+    <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -38,8 +34,9 @@ $basket=My_Mvc::getInstance('basket');
 <div class="container">
 
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <?php
+            My_Mvc::app();
+        ?>
     </div>
 
 </div><!-- /.container -->
