@@ -48,5 +48,6 @@ class My_Mvc
     public static function render($view)
     {
         require_once ("app".DS."views".DS.$view.DS."default.php");
+        //require_once ("templates".DS.$view.DS."index.php");
     }
 }
