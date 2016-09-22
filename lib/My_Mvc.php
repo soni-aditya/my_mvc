@@ -10,6 +10,7 @@ class My_Mvc
 {
     var $node=array();
     private static $instance=array();
+    public static $tmpl='starter';
 
     function main()
     {
@@ -62,7 +63,14 @@ class My_Mvc
     {
         $my_mvc=My_Mvc::getInstance('My_Mvc');
         $my_mvc->set('view',$view);
-        require_once ("templates".DS.'starter'.DS."index.php");
+
+        $request=My_Mvc::getInstance('request');
+        $tmp=$request->get('tmpl');
+        if($tmp==null)
+        {
+            $tmp=self::$tmpl;
+        }
+        require_once ("templates".DS.$tmp.DS."index.php");
     }
     public static function app()
     {
