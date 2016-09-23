@@ -67,13 +67,13 @@ class My_Mvc
 
         $request=My_Mvc::getInstance('request');
         ///For switching templates if user types wwww.***/***/***/***&tmpl=XXXX
-        //this tmpl is out variable
+        //this tmpl is our variable
         if($request->get('tmpl')!=null)
         {
             $tmp=$request->get('tmpl');
         }
         ///For switching different fromates or views
-        //this type is out variable
+        //this type is our variable
         $basket=My_Mvc::getInstance('basket');
         //if user types wwww.***/***/***/***&api=json&hash=aditya
         //hash is like a password here
