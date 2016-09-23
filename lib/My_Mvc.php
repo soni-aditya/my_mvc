@@ -63,14 +63,27 @@ class My_Mvc
     {
         $my_mvc=My_Mvc::getInstance('My_Mvc');
         $my_mvc->set('view',$view);
+        $tmp=self::$tmpl;
 
         $request=My_Mvc::getInstance('request');
-        $tmp=$request->get('tmpl');
-        if($tmp==null)
+        if($request->get('tmpl')!=null)
         {
-            $tmp=self::$tmpl;
+            $tmp=$request->get('tmpl');
         }
-        require_once ("templates".DS.$tmp.DS."index.php");
+
+        $basket=My_Mvc::getInstance('basket');
+        if($request->get('type')=='json')
+        {
+            echo json_encode($basket);
+        }
+        else if($request->get('type')=='html')
+        {
+            require_once ("app".DS."views".DS.$view.DS."default.php");
+        }
+        else
+        {
+            require_once ("templates".DS.$tmp.DS."index.php");
+        }
     }
     public static function app()
     {
