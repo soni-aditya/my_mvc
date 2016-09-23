@@ -8,16 +8,16 @@
 //package= app/controllers/AppController.php
 class AppController{
     function main(){
-        echo "this is from main";
+        My_Mvc::render('root');
     }
     function about(){
-        echo "this is from about";
+        My_Mvc::render('about');
     }
     function contact(){
-        echo "this is from Contacts";
+        My_Mvc::render('contact');
     }
     function services(){
-        echo "these are the services";
+        My_Mvc::render('services');
     }
     function no_operation(){
         echo "No such Operation exists";

@@ -14,9 +14,10 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+                <li role="presentation"><a href="http://localhost/my_mvc/&tmpl=bottle">Home</a></li>
+                <li role="presentation"><a href="http://localhost/my_mvc/about&tmpl=bottle">About</a></li>
+                <li role="presentation"><a href="http://localhost/my_mvc/contact&tmpl=bottle">Contact</a></li>
+                <li role="presentation"><a href="http://localhost/my_mvc/services&tmpl=bottle">Services</a></li>
             </ul>
         </nav>
         <h3 class="text-muted">Project name</h3>

@@ -105,10 +105,10 @@ class node{
                 {
                     require_once("app".DS."controllers".DS."AppController.php");
                     //check if there is a method by that name in the default AppControler class
-                    if(method_exists('AppController',$this->routes['0']))
+                    if(method_exists('AppController',$this->node['alpha']))
                     {
                         $classObj=new AppController();
-                        $method=$this->routes['0'];
+                        $method=$this->node['alpha'];
                         $classObj->$method();
                     }
                     //if there is no such method in the default AppController method\
