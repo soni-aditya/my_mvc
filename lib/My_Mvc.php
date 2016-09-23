@@ -66,17 +66,24 @@ class My_Mvc
         $tmp=self::$tmpl;
 
         $request=My_Mvc::getInstance('request');
+        ///For switching templates if user types wwww.***/***/***/***&tmpl=XXXX
+        //this tmpl is out variable
         if($request->get('tmpl')!=null)
         {
             $tmp=$request->get('tmpl');
         }
-
+        ///For switching different fromates or views
+        //this type is out variable
         $basket=My_Mvc::getInstance('basket');
-        if($request->get('type')=='json')
+        //if user types wwww.***/***/***/***&api=json&hash=aditya
+        //hash is like a password here
+        if($request->get('api')==='json'&&$request->get('hash')==='aditya')
         {
             echo json_encode($basket);
         }
-        else if($request->get('type')=='html')
+        //if user types wwww.***/***/***/***&api=html&hash=aditya
+        //hash is like a password here
+        else if($request->get('api')==='html'&& $request->get('hash')==='aditya')
         {
             require_once ("app".DS."views".DS.$view.DS."default.php");
         }
