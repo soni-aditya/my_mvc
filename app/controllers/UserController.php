@@ -17,8 +17,9 @@ class UserController{
         echo "Recent users are adi,aditya,akash";
     }
     function lists(){
-        echo "<h1>USER LIST</h1>";
-        echo "<br><br>Aditya<br>Akash<br>Adi";
+        $model=My_Mvc::getModel('usermodel');
+        $model->getusers();
+        My_Mvc::render('userlist');
     }
     function no_operation(){
         echo "No such Operation exists";

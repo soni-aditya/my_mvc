@@ -37,14 +37,26 @@ class My_Mvc
         }
         else
         {
+            //if class donot exist than load[require] that class
             if(!class_exists($class))
             {
                 self::autoload($class);
             }
+            //if class we are calling is pdo than
+            if($class=='pdo')
+            {
+                //store loaded class instance
+                self::$instance[$class]=new PDO('mysql:host=localhost;dbname=mymvc','root','mysql');
+            }
+            else
+            {
+                //store loaded class instance
                 self::$instance[$class]=new $class();
-                return self::$instance[$class];
+            }
+            return self::$instance[$class];
         }
     }
+    //method for loading the unloaded class
     private static function autoload($class)
     {
         $paths=array('lib','app'.DS.'controllers','app'.DS.'models');
@@ -59,6 +71,7 @@ class My_Mvc
             }
         }
     }
+    //function for rendering us from one view/template to another
     public static function render($view)
     {
         $my_mvc=My_Mvc::getInstance('My_Mvc');
@@ -97,5 +110,20 @@ class My_Mvc
         $my_mvc=My_Mvc::getInstance('My_Mvc');
         $view=$my_mvc->get('view');
         require_once ("app".DS."views".DS.$view.DS."default.php");
+    }
+
+    public static function getModel($model)
+    {
+        $file="app".DS."models".DS.$model.".php";
+        if(file_exists($file))
+        {
+            require_once $file;
+            $model_obj=new $model();
+            return $model_obj;
+        }
+        else
+        {
+            echo "Model doesn't exist";
+        }
     }
 }
